@@ -16,6 +16,7 @@ namespace KBot.API
         {
             Assert.Catch<ArgumentException>(()=>new BotAPI().ExecuteCommand(new[]{"lol"}));
         }
+        //TODO: MORE TESTS!
 
     }
 

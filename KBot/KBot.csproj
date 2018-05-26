@@ -54,14 +54,13 @@
     <Compile Include="API\BotAPI.cs" />
     <Compile Include="API\BotAPI_should.cs" />
     <Compile Include="API\IBotAPI.cs" />
+    <Compile Include="LinkKeeper\Link.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="LinkKeeper\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
