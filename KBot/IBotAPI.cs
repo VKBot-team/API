@@ -8,6 +8,6 @@ namespace KBot.API
 {
     interface IBotAPI
     {
-       void ExecuteCommand(string[] args);
+       Task ExecuteCommand(string[] args);
     }
 }

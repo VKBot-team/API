@@ -1,21 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CommandLine;
 using KBot.API;
-
+using VKApi;
+using System.Threading.Tasks;
 
 namespace KBot
 {
-    class BotAPI:IBotAPI
+    class BotAPI: IBotAPI
     {
-        private static readonly Dictionary<string, Action<string[]>> Commands
-            = new Dictionary<string, Action<string[]>>();
+        private static readonly Dictionary<string, Func<string[], Task>> Commands
+            = new Dictionary<string, Func<string[], Task>>();
+        
+        static BotAPI()
+        {
+            var vks = new VkService();
+            Commands["call"] = async args =>
+            {
+                var users = await vks.GetGroupUsers();
+                foreach (var user in users)
+                {
+                    await vks.SendMessageById(user, args[0]);
+                }
+            };
 
-        public void ExecuteCommand(string[] args)
+            Commands["ok"] = async args =>
+            {
+                await vks.SendMessageById(args[0], "Ok. Request is processing");
+            };
+        }
+
+        public async Task ExecuteCommand(string[] args)
         {
             var command = args[0];
             if (!Commands.ContainsKey(command))
@@ -23,7 +38,7 @@ namespace KBot
                 throw new ArgumentException("Command is not found");
             }
             var list = args.Skip(1).ToArray();
-            Commands[command](list);
+            await Commands[command](list);
         }
     }
 }
