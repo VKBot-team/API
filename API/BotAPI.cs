@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using KBot.API;
-using VKApi;
 using System.Threading.Tasks;
+using VKApiCore;
 
-namespace KBot
+namespace API
 {
     public class BotAPI: IBotAPI
     {
         private static readonly Dictionary<string, Func<string[], Task>> Commands
             = new Dictionary<string, Func<string[], Task>>();
-        
+
         static BotAPI()
         {
             var vks = new VkService();
@@ -42,4 +41,3 @@ namespace KBot
         }
     }
 }
-

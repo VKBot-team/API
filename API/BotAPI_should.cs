@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using NUnit;
 using NUnit.Framework;
 
-namespace KBot.API
+namespace API
 {
     [TestFixture]
     class BotAPI_should
@@ -14,11 +11,9 @@ namespace KBot.API
         [Test]
         public void TestInvalid()
         {
-            Assert.Catch<ArgumentException>(()=>new BotAPI().ExecuteCommand(new[]{"lol"}));
+            Assert.Catch<ArgumentException>(async () => await new BotAPI().ExecuteCommand(new[] { "lol" }));
         }
         //TODO: MORE TESTS!
 
     }
-
-    
 }
