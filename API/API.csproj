@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <Reference Include="VKApiCore">
-      <HintPath>bin\Debug\VKApiCore.dll</HintPath>
+      <HintPath>..\..\VKApiCore\VKApiCore\bin\Release\netcoreapp2.0\VKApiCore.dll</HintPath>
     </Reference>
   </ItemGroup>
 
