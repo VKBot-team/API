@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KBot
 {
-    class BotAPI: IBotAPI
+    public class BotAPI: IBotAPI
     {
         private static readonly Dictionary<string, Func<string[], Task>> Commands
             = new Dictionary<string, Func<string[], Task>>();

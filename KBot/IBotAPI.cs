@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KBot.API
 {
-    interface IBotAPI
+    public interface IBotAPI
     {
        Task ExecuteCommand(string[] args);
     }
